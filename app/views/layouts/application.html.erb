@@ -33,9 +33,11 @@
     <!-- For all other devices -->
     <!-- Size should be 32 x 32 pixels -->
     <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
   </head>
   <body>
-
+  <div class="wrapper">
+    <hearder class="header">
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -51,33 +53,31 @@
                   <li>Welcome <%= current_user.name%></li>
                   <li><%= link_to "Logout", destroy_user_session_path, :method => :delete  %></li>
               <% else%>
-              <li><%= link_to "Sign Up", new_user_registration_path  %></li>
+              <li><%= link_to "About Us" %></li>
               <li><%= link_to "Login", new_user_session_path  %></li>
+              <li><%= link_to "Sign Up", new_user_registration_path  %></li>
            <% end %>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
-
-    <div class="container">
-        <div class="row">
-          <div class="span12">
-            <%= bootstrap_flash %>
+    </hearder>
+    <section class="mainContent">
+            <%#= bootstrap_flash %>
             <%= yield %>
-          </div>
-        </div><!--/row-->
 
-      <footer>
-        <p>&copy; Company 2013</p>
+      <footer class="footer">
+        <div class="container">
+          <p>&copy; Company 2013</p>
+        </div>
       </footer>
 
-    </div> <!-- /container -->
-
+    </section>
     <!-- Javascripts
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
 
-
+  </div>
   </body>
 </html>
