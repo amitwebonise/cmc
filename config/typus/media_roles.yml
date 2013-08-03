@@ -2,3 +2,4 @@
 
 admin:
   Media: create, read, update, delete
+  Category: create, read, update, delete

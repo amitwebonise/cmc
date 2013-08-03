@@ -9,6 +9,10 @@ gem "mysql2"
 gem 'devise'
 gem 'carrierwave'
 gem "rmagick"
+gem 'rb-readline', '~> 0.4.2'
+#gem 'rb-readline'
+gem "geocoder"
+#gem "rb-readline"
 #gem "httparty"
 gem 'ie_iframe_cookies'
 gem "typus", :git => "git://github.com/fesplugas/typus.git", :branch => "3-2-stable"

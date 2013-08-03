@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  activity_for: MyString
+  media: MyString
+  description: MyString
+  contact_person: MyString
+  is_anonymous: false
+  user_id: 1
+
+two:
+  activity_for: MyString
+  media: MyString
+  description: MyString
+  contact_person: MyString
+  is_anonymous: false
+  user_id: 1

@@ -4,7 +4,7 @@ class ApiAuthentication
 
   def self.is_response_authenticated?(params)
     Rails.logger.info("============BEFORE================================#{params.inspect}")
-    parameter_data = params.reject{|key,value| ["action","signed_key","controller","format","photos"].include?(key)}
+    parameter_data = params.reject{|key,value| ["action","signed_key","controller","format","photos","api"].include?(key)}
     Rails.logger.info("============Param DATA================================#{parameter_data.inspect}")
     hdata =  parameter_data.sort.collect{|i| i.last}.join("")
     Rails.logger.info("============Hdata DATA================================#{hdata.inspect}")

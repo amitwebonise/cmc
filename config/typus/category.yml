@@ -1,0 +1,6 @@
+Category:
+  fields:
+    default: name
+    form: name
+  relationships:
+  application: Application

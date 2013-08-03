@@ -1,0 +1,4 @@
+#header {
+background:url("/assets/header_bg.png");
+padding: 1.25em 0 1.25em 1em;
+}

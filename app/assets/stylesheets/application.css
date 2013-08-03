@@ -12,3 +12,11 @@
  *= require bootstrap
 
  */
+body {
+    padding-top: 60px;
+}
+
+.actions
+{
+    margin-top:15px;
+}

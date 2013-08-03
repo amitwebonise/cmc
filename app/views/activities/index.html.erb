@@ -1,0 +1,36 @@
+<h1>Listing activities</h1>
+<div class="span3 offset7">
+  <%= link_to "Raise My Voice",new_activity_path, :class => "btn"%>
+</div>
+
+<table>
+  <tr>
+    <th>Activity for</th>
+    <th>Media</th>
+    <th>Description</th>
+    <th>Contact person</th>
+    <th>Is anonymous</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @activities.each do |activity| %>
+  <tr>
+    <td><%= activity.activity_for %></td>
+    <td><%= activity.media %></td>
+    <td><%= activity.description %></td>
+    <td><%= activity.contact_person %></td>
+    <td><%= activity.is_anonymous %></td>
+    <td><%= activity.user_id %></td>
+    <td><%= link_to 'Show', activity %></td>
+    <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
+    <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Activity', new_activity_path %>
