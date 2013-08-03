@@ -20,6 +20,14 @@ html, p, ul, h2, h3, h4, header, ul, li {
  .wrapper {
 
  }
+.logo {
+    background: url(/assets/logo.png) no-repeat;
+    width: 260px;
+    height: 47px;
+    float: left;
+    text-indent: -9999px;
+    padding: 0;
+}
 .header .navbar-inner  {
     background: url(/assets/header_bg.png) repeat-x;
     height: 60px;

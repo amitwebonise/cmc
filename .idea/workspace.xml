@@ -6,7 +6,7 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/routes.rb" changelist="7ad14cb2-db8a-4593-9a9c-a8939cdd65e8" time="1375550415289" ignored="false" />
     <file path="/a.dummy" changelist="7ad14cb2-db8a-4593-9a9c-a8939cdd65e8" time="1375535915306" ignored="false" />
-    <file path="/api_controller.rb" changelist="7ad14cb2-db8a-4593-9a9c-a8939cdd65e8" time="1375567673212" ignored="false" />
+    <file path="/api_controller.rb" changelist="7ad14cb2-db8a-4593-9a9c-a8939cdd65e8" time="1375568536585" ignored="false" />
     <file path="/20130803075804_create_media.rb" changelist="7ad14cb2-db8a-4593-9a9c-a8939cdd65e8" time="1375518385929" ignored="false" />
     <file path="/media.rb" changelist="7ad14cb2-db8a-4593-9a9c-a8939cdd65e8" time="1375518710744" ignored="false" />
     <file path="/typus.rb" changelist="7ad14cb2-db8a-4593-9a9c-a8939cdd65e8" time="1375520291450" ignored="false" />
@@ -84,15 +84,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="development.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="78" selection-start="1378" selection-end="1378" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="edit.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/devise/passwords/edit.html.erb">
           <provider selected="true" editor-type-id="text-editor">
@@ -127,7 +118,16 @@
       <file leaf-file-name="api_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="57" selection-start="1405" selection-end="1405" vertical-scroll-proportion="0.34690267">
+            <state line="51" column="31" selection-start="1661" selection-end="1661" vertical-scroll-proportion="0.7716814">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="55" column="23" selection-start="2800" selection-end="2800" vertical-scroll-proportion="-21.916666">
               <folding />
             </state>
           </provider>
@@ -161,7 +161,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/views/homes/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/homes_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/homes/dashboard.html.erb" />
@@ -176,6 +175,7 @@
         <option value="$PROJECT_DIR$/lib/carrier.rb" />
         <option value="$PROJECT_DIR$/app/models/activity.rb" />
         <option value="$PROJECT_DIR$/app/models/comment.rb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/api_controller.rb" />
       </list>
     </option>
@@ -889,13 +889,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/homes_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="82" selection-start="124" selection-end="124" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/homes/dashboard.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="24" selection-start="681" selection-end="681" vertical-scroll-proportion="-9.375">
@@ -998,9 +991,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="23" selection-start="2800" selection-end="2800" vertical-scroll-proportion="-21.916666">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/api_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="57" selection-start="1405" selection-end="1405" vertical-scroll-proportion="0.34690267">
+        <state line="51" column="31" selection-start="1661" selection-end="1661" vertical-scroll-proportion="0.7716814">
           <folding />
         </state>
       </provider>
