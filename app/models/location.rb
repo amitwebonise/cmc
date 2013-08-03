@@ -1,7 +1,8 @@
 class Location < ActiveRecord::Base
+  belongs_to :activity#, :polymorphic => true
   attr_accessible :city, :country, :latitude, :longitude, :state, :street_address, :activity_id, :postal_code
 
-  belongs_to :activity#, :polymorphic => true
+
 
   geocoded_by :full_street_address   # can also be an IP address
   after_validation :geocode          # auto-fetch coordinates

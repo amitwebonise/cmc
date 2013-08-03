@@ -53,7 +53,11 @@ Cleanmycity::Application.routes.draw do
     get :dashboard, :on => :collection
   end
 
-  resources :activities
+  resources :activities do
+    post :comment, :on => :member
+    post :email, :on => :member
+    get :shame, :on => :member
+  end
   resources :friendships
   #authenticated :user do
   #  root :to => 'homes#dashboard'

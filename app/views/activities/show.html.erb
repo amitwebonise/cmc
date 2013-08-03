@@ -1,32 +1,39 @@
-<p id="notice"><%= notice %></p>
+<div class="container activityShowWrap">
+  <div class="imgBox"><%= image_tag(@activity.image_url(:thumb), :size => "400x400")%></div>
 
-<p>
-  <b>Activity for:</b>
-  <%= @activity.activity_for %>
-</p>
+  <div class="categoryAndCreated">
+    <span class="category"><%= @activity.category.name%></span>
+    <span class="created"><%= @activity.user.name%></span>
+  </div>
+  <p></p>
+  <div class="shameAndCommentWrap">
+    <span class="shameText">shame(<%= @activity.shames.count%>)</span>
+    <span class="commentText">Comment(<%= @activity.comments.count %>)</span>
+  </div>
+  <div class="commentBox">
+    <%= form_tag comment_activity_path(@activity) do | f|%>
+        <label><strong>Add comment to this activity</strong></label>
+        <%= text_area_tag :description,nil, :class =>"textarea" %>
+        <%= submit_tag "comment", :class=>"blueBtn"%>
+    <% end %>
+  </div>
+  <ul class="commentList">
+    <% @activity.comments.each do |comment|%>
+      <li>
+        <div class="userImg"><%=image_tag("http://www.gravatar.com/avatar.php?gravatar_id=#{comment.user.gravatar_digest}", :size => "50x50")%></div>
+        <div class="userDetail">
+          <h4><%= comment.user.name%></h4>
+          <p><%= comment.description%></p>
+        </div>
+      </li>
+        <% end %>
+  </ul>
+  <div class="socialBox">
+    <a onClick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[title]=<%= @activity.subject %> - Clean My City&amp;p[summary]=<%=u @activity.description %>&amp;p[url]=<%= activity_url(@activity)%>&amp;&amp;p[images][0]=<%= "http://#{request.env["HTTP_HOST"]}#{@activity.image_url}" %>','sharer','toolbar=0,status=0,width=548,height=325'); return false;" href="http://www.facebook.com/sharer.php?s=100&amp;p[title]=<%= @activity.subject %> - Check-in For Good&amp;p[summary]=<%= @activity.description %>&amp;p[url]=<%= activity_url(@activity)%>&amp;&amp;" class="fbImgBig">Facebook</a>
+    <a onClick="window.open('http://twitter.com/intent/tweet?text=Support this Activity: '<%= @activity.name %> -'&url=<%= activity_url(@activity)%>&hashtags=CMC');  return false;" href="http://twitter.com/intent/tweet?text=Support this Activity: '<%= @activity.name %> -'&url=<%= activity_url(@activity)%>&hashtags=CMC" class="twitICon">Twitter</a>
+    <%= link_to "Shame",shame_activity_path(@activity), :class => "shamIcon" unless @is_shamed%>
+  </div>
+  <%= link_to "share with friends vie email",email_activity_path(@activity) %>
 
-<p>
-  <b>Media:</b>
-  <%= @activity.media %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @activity.description %>
-</p>
-
-<p>
-  <b>Contact person:</b>
-  <%= @activity.contact_person %>
-</p>
-
-<p>
-  <b>Is anonymous:</b>
-  <%= @activity.is_anonymous %>
-</p>
-
-<p>
-  <b>User Name:</b>
-  <%= @activity.user.name %>
-</p>
+ </div>
 

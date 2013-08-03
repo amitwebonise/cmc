@@ -1,3 +1,56 @@
-<div class="span3 offset7">
-  <%= link_to "Raise My Voice",new_activity_path, :class => "btn"%>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/easySlider1.7.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#slider").easySlider({
+            auto: true,
+            continuous: true,
+            numeric: true
+        });
+    });
+</script>
+<div class="container">
+<div class="banner">
+  <div id="slider">
+    <ul>
+      <li><a href="http://templatica.com/preview/30"><img src="/assets/01.jpg" alt="Css Template Preview" /></a></li>
+      <li><a href="http://templatica.com/preview/7"><img src="/assets/02.jpg" alt="Css Template Preview" /></a></li>
+      <li><a href="http://templatica.com/preview/25"><img src="/assets/01.jpg" alt="Css Template Preview" /></a></li>
+    </ul>
+  </div>
+</div>
+<section class="textContent">
+  <h1>Be a force for good.Post, Promote, Participant.</h1>
+  <h3>Now its time to show your responsibity and you are just three steps behind.</h3>
+  <div class="row">
+    <div class="span4">
+      <div class="socialContent">
+        <h3>Post</h3>
+        <img src="/assets/post_bg.png" alt="">
+        <a href="<%= new_activity_path%>" class="blueBtn">Raise your voice</a>
+      </div>
+    </div>
+    <div class="span4">
+      <div class="socialContent">
+        <h3>Promote</h3>
+        <img src="/assets/promote_bg.png" alt="">
+        <a href="<%= activities_path %>" class="blueBtn">Share It</a>
+      </div>
+    </div>
+    <div class="span4">
+      <div class="socialContent">
+        <h3>Participant</h3>
+        <img src="/assets/participant_bg.png" alt="">
+        <a href="<%=  dashboard_homes_path%>" class="blueBtn">Support Others</a>
+      </div>
+    </div>
+  </div>
+  <h2>What It Loos Like</h2>
+  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+    printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+    essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+    software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+
+</section>
+
 </div>

@@ -1,28 +1,23 @@
+<div class="container">
 <h2>Your Friends</h2>
-<ul>
   <% for friendship in current_user.friendships %>
-      <li>
-        <%= image_tag("http://www.gravatar.com/avatar.php?gravatar_id=#{friendship.friend.gravatar_digest}", :size => "50x50")%>
-        <%= h friendship.friend.name %>
+      <div class="user">
+        <div class="imgBox"><%= image_tag("http://www.gravatar.com/avatar.php?gravatar_id=#{friendship.friend.gravatar_digest}", :size => "50x50")%></div>
+        <p><%= h friendship.friend.name %> </p>
         (<%= link_to "remove", friendship, :method => :delete %>)
-      </li>
+      </div>
   <% end %>
-</ul>
 
 <h2>Other Users</h2>
-<ul>
-  <% for user in current_user.inverse_friends %>
-      <li><%= h user.name %></li>
-  <% end %>
-</ul>
 
 <% for user in @users %>
     <div class="user">
       <%= image_tag("http://www.gravatar.com/avatar.php?gravatar_id=#{user.gravatar_digest}", :size => "50x50")%>
       <p>
         <strong><%=h user.name %></strong>
-        <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+        <%= button_to "Add Friend", friendships_path(:friend_id => user)%>
       <div class="clear"></div>
       </p>
     </div>
 <% end %>
+</div>

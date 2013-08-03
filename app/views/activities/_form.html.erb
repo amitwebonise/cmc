@@ -1,3 +1,4 @@
+
 <%= form_for(@activity) do |f| %>
   <% if @activity.errors.any? %>
     <div id="error_explanation">
@@ -10,7 +11,10 @@
       </ul>
     </div>
   <% end %>
-
+    <div class="field">
+      <label>Activity Title</label>
+      <%= f.text_field :subject   %>
+    </div>
   <div class="field">
     <label>Select Category to which your Activity belongs</label>
     <%= f.select :category_id,  @categories,{:prompt => "Select Category"}   %>
@@ -36,7 +40,8 @@
       <label>Upload image which can support your activity</label>
       <%= f.check_box :is_anonymous %>
     </div>
-    <%= fields_for :location do |l|%>
+    <% @activity.build_location if @activity.location.nil? %>
+    <%= fields_for  @location  do |l|%>
         <div class="field">
           <label>Street Address</label>
           <%= l.text_field :street_address  %>
@@ -53,7 +58,7 @@
        <label>Country</label>
           <%= l.text_field :country %>
         </div>
-        <label>Country</label>
+        <label>Postal Code</label>
         <%= l.text_field :postal_code %>
         </div>
 
@@ -63,3 +68,4 @@
     <%= link_to "cancel", :class => "btn-secondary"%>
   </div>
 <% end %>
+

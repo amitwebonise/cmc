@@ -1,5 +1,5 @@
 class ActivitiesController < ApplicationController
-  before_filter :authenticate_user!, :except => [:show]
+  before_filter :authenticate_user!
   # GET /activities
   # GET /activities.json
   def index
@@ -16,6 +16,9 @@ class ActivitiesController < ApplicationController
   # GET /activities/1.json
   def show
     @activity = current_user.activities.find(params[:id])
+    @shames =  @activity.shames
+    @comments = @activity.comments
+    @is_shamed =  @activity.shame_ids.include?(current_user.id)
   respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @activity }
@@ -26,6 +29,7 @@ class ActivitiesController < ApplicationController
   # GET /activities/new.json
   def new
     @activity = current_user.activities.new
+    @location = @activity.build_location
     @medias = Media.all.collect{|m| [m.name,m.id]}
     @categories = Category.all.collect{|m| [m.name,m.id]}
     respond_to do |format|
@@ -44,7 +48,9 @@ class ActivitiesController < ApplicationController
   # POST /activities
   # POST /activities.json
   def create
-    @activity = current_user.activities.new(params[:activity])
+    @activity = Activity.new(params[:activity])
+    @activity.user_id = current_user.id
+    @location = @activity.build_location
     @medias = Media.all.collect{|m| [m.name,m.id]}
     @categories = Category.all.collect{|m| [m.name,m.id]}
     respond_to do |format|
@@ -86,5 +92,29 @@ class ActivitiesController < ApplicationController
       format.html { redirect_to activities_url }
       format.json { head :no_content }
     end
+  end
+
+  def comment
+    @activity = Activity.find(params[:id])
+    @comment  = @activity.comments.create(:user_id => current_user.id, :description => params[:description])
+   if @comment.save
+    redirect_to activity_path(@activity), :notice => "Thank You for posting the Comment"
+   else
+     redirect_to activity_path(@activity), :notice => "Sorry ! Empty comment is not Allowed"
+   end
+  end
+
+  def shame
+    @activity = Activity.find(params[:id])
+    @comment  = @activity.shames.create(:user_id => current_user.id)
+    if @comment.save
+      redirect_to activity_path(@activity), :notice => "Thank You for Participate. it really help a lot to this activity"
+    else
+      redirect_to activity_path(@activity), :notice => "Sorry ! Empty comment is not Allowed"
+    end
+  end
+
+  def email
+
   end
 end

@@ -5,6 +5,6 @@ class HomesController < ApplicationController
   end
 
   def dashboard
-
+    @activities = Activity.all
   end
 end

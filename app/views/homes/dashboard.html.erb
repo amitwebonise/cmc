@@ -1,0 +1,29 @@
+<div class="container activitiesWrap">
+  <h1>All  Activities</h1>
+  <div class="btnContent">
+    <%= link_to "Raise My Voice",new_activity_path, :class => "blackBtn btn"%>
+  </div>
+  <ul class="activitiesList">
+
+    <% @activities.each do |activity| %>
+        <li>
+          <div class="imgBox"><%= image_tag(activity.image_url(:large), :size => "290x290")%></div>
+          <div class="name"><%= activity.subject%></div>
+          <div class="category"><%= activity.category.name%></div>
+          <div class="created"> <%= activity.user.name %></div>
+          <div class="description"> <%= activity.description%></div>
+          <div class="scialLink">
+            <a href="<%= activity_path(activity)%>" class="showIcon"></a>
+            <a href="<%= edit_activity_path(activity)%>" class="editIcon"></a>
+            <%= link_to "",activity_path(activity), :method => :delete,:class =>  "destroyIcon"%>
+            <a onClick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[title]=<%= activity.subject %> - Clean My City&amp;p[summary]=<%=u activity.description %>&amp;p[url]=<%= activity_url(activity)%>&amp;&amp;p[images][0]=<%= "http://#{request.env["HTTP_HOST"]}#{activity.image_url}" %>','sharer','toolbar=0,status=0,width=548,height=325'); return false;" href="http://www.facebook.com/sharer.php?s=100&amp;p[title]=<%= activity.subject %> - Check-in For Good&amp;p[summary]=<%= activity.description %>&amp;p[url]=<%= activity_url(activity)%>&amp;&amp;" class="fbImgBig">Facebook</a>
+            <a onClick="window.open('http://twitter.com/intent/tweet?text=Support this Activity: '+"<%= activity.name %>" +'&url=<%= activity_url(activity)%>&hashtags=CMC');  return false;" href="http://twitter.com/intent/tweet?text=Support this Activity: '<%= activity.name %> -'&url=<%= activity_url(activity)%>&hashtags=CMC" class="twitICon">Twitter</a>
+
+          </div>
+          <%= button_to "share with friends vie email",email_activity_path(activity), :class=>"blueBtn" %>
+        </li>
+    <% end %>
+
+  </ul>
+
+</div>

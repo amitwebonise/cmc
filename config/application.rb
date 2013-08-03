@@ -64,7 +64,6 @@ module Cleanmycity
     config.action_mailer.smtp_settings = {
         :address              => "smtp.gmail.com",
         :port                 => 587,
-        :domain               => 'mail.google.com',
         :user_name            => 'cleanmycity2013@gmail.com',
         :password             => 'cleanmycity6186',
         :authentication       => 'plain',

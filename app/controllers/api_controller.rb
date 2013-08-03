@@ -1,6 +1,6 @@
 class ApiController < ApplicationController
   before_filter :authorize_response
-  before_filter :check_api_key, :except => [:login, :signup, :forgot_password]
+  #before_filter :check_api_key, :except => [:login, :signup, :forgot_password]
   respond_to :xml, :json
   def signup
     result = {:success => false}
@@ -29,6 +29,41 @@ class ApiController < ApplicationController
 
   def forgot_password
 
+  end
+
+  def create_activity
+    result = {:success => false}
+    a = Activity.create(:category_id => params[:category], :subject => params[:subject], :media => [params[:media]], :description => params[:description])
+ if a.save
+   if params[:image].present?
+     file =  File.open(a.id.to_s + ".jpg","wb") do |file|
+       file.write(ActiveSupport::Base64.decode64(params[:image]))
+     end
+     a.image =  File.open(a.id.to_s + ".jpg")
+     a.save
+     result = {:success => true}
+   end
+   Location.create(:activity_id => a.id, :latitude => params[:latitude], :longitude => params[:longitude])
+   end
+     render :json => a.as_json
+  end
+
+  def my_activities
+     user = User.find(params[:user_id])
+    activities =  user.activities.includes(:commennts,:shames).as_json(:methods => [:shame_count, :comment_count])
+    render :json =>  activities
+  end
+
+  def get_activites_form_data
+    render :json => {:media => Media.all.as_json, :categories => Category.all.as_json}
+  end
+
+  def get_categories
+    @categories = Category.all
+  end
+
+  def get_all_Activites
+    @activities = Activity.includes(:shames,:comments).as_json(:comments => {:only => :description})
   end
 
   private
