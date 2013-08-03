@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Media:
+  fields:
+    default: name, email, contact_number
+    form: name, email, contact_number
+  relationships: 
+  application: Application

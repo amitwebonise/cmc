@@ -1,0 +1,41 @@
+<!-- Applications list with models. -->
+
+<%
+  applications = admin_user.applications
+
+  if params[:application]
+    applications.reject! { |a| a.parameterize != params[:application] }
+  end
+%>
+
+<h2><%= Typus::I18n.t("Site administration") %></h2>
+
+<% if applications.any? %>
+  <% applications.each do |app| %>
+
+    <table style="margin-bottom: 1em;">
+
+      <thead>
+        <tr>
+          <th><%= link_to Typus::I18n.t(app), admin_dashboard_path(app.parameterize) %></th>
+        </tr>
+      </thead>
+
+      <% admin_user.application(app).map(&:constantize).each do |klass| %>
+        <% unless klass.typus_options_for(:hide_from_dashboard) %>
+          <tr class="<%= cycle("even", "odd") %>">
+            <td>
+              <%= link_to klass.model_name.human.pluralize, :controller => "/admin/#{klass.to_resource}" %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+
+    </table>
+
+  <% end %>
+<% else %>
+  <div class="notice">
+    <%= Typus::I18n.t("No applications detected.") %>
+  </div>
+<% end %>
